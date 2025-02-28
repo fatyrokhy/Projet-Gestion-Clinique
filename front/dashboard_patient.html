@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Patient</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="patient.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Barre de navigation -->
+    <nav class="bg-blue-600 p-4 text-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Tableau de Bord</h1>
+            <span id="patient-name" class="font-semibold"></span>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg">
+        <h3 class="text-xl font-semibold mb-4">📅 Liste de vos Rendez-vous</h3>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                <thead class="bg-blue-500 text-white">
+                    <tr>
+                        <th class="py-4 px-6 border-b text-left">📅 Date</th>
+                        <th class="py-4 px-6 border-b text-left">⏰ Heure</th>
+                        <th class="py-4 px-6 border-b text-left">👨‍⚕️ Médecin</th>
+                        <th class="py-4 px-6 border-b text-left">✅ État</th>
+                    </tr>
+                </thead>
+                <tbody id="appointments-list" class="text-gray-700 divide-y divide-gray-300">
+                    <!-- Les rendez-vous seront affichés ici -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="text-center p-4 mt-8 text-gray-600">
+        &copy; 2025 - Système de Gestion Médicale
+    </footer>
+    <script src="patient.js"></script>
+</body>
+</html>

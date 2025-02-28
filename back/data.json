@@ -1,0 +1,160 @@
+{
+  "secretaire": [
+    {
+      "id": "1",
+      "nom": "niass",
+      "prenom": "fatima",
+      "login": "fatima@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "patient": [
+    {
+      "id": "1",
+      "nom": "niass",
+      "prenom": "abdou",
+      "login": "abdou@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "2",
+      "nom": "diouf",
+      "prenom": "amina",
+      "login": "amina@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "3",
+      "nom": "fall",
+      "prenom": "mariama",
+      "login": "mariama@gmail.com",
+      "password": "5678"
+    },
+    {
+      "id": "4",
+      "nom": "sow",
+      "prenom": "ibrahima",
+      "login": "ibrahima@gmail.com",
+      "password": "9999"
+    },
+    {
+      "id": "36c9",
+      "nom": "Biteye",
+      "prenom": "Amadou",
+      "login": "amadou@gmail.com",
+      "password": "6666"
+    },
+    {
+      "id": "ea06",
+      "nom": "Ba",
+      "prenom": "Modou",
+      "login": "modou@gmail.com",
+      "password": "2233"
+    },
+    {
+      "id": "6473",
+      "nom": "thioukh",
+      "prenom": "thioukh",
+      "login": "thioukh@gmail.com",
+      "password": "thioukh"
+    }
+  ],
+  "medecin": [
+    {
+      "id": "1",
+      "nom": "cissé",
+      "prenom": "moustapha",
+      "specialite": "generaliste",
+      "login": "moutapha@gmail.com",
+      "password": "4444"
+    },
+    {
+      "id": "2",
+      "nom": "kane",
+      "prenom": "demba",
+      "specialite": "dentiste",
+      "login": "demba@gmail.com",
+      "password": "2222"
+    },
+    {
+      "id": "3",
+      "nom": "ba",
+      "prenom": "khadija",
+      "specialite": "cardiologue",
+      "login": "khadija@gmail.com",
+      "password": "3333"
+    },
+    {
+      "id": "4",
+      "nom": "ndiaye",
+      "prenom": "serigne",
+      "specialite": "dermatologue",
+      "login": "serigne@gmail.com",
+      "password": "5555"
+    }
+  ],
+  "rv": [
+    {
+      "id": "1",
+      "id-medecin": "1",
+      "id-patient": "1",
+      "date": "22/02/2024",
+      "heure": "22:10",
+      "statut": "VALIDER"
+    },
+    {
+      "id": "2",
+      "id-medecin": "2",
+      "id-patient": "2",
+      "date": "22/02/2024",
+      "heure": "22:10",
+      "statut": "En cours"
+    },
+    {
+      "id": "3",
+      "id-medecin": "2",
+      "id-patient": "3",
+      "date": "23/02/2024",
+      "heure": "10:00",
+      "statut": "En cours"
+    },
+    {
+      "id": "4",
+      "id-medecin": "1",
+      "id-patient": "4",
+      "date": "23/02/2024",
+      "heure": "11:30",
+      "statut": "VALIDER"
+    },
+    {
+      "id": "5",
+      "id-medecin": "3",
+      "id-patient": "4",
+      "date": "24/02/2024",
+      "heure": "09:00",
+      "statut": "En cours"
+    },
+    {
+      "id": "6",
+      "id-medecin": "2",
+      "id-patient": "4",
+      "date": "24/02/2024",
+      "heure": "14:00",
+      "statut": "En cours"
+    }
+  ],
+  "role": [
+    {
+      "id": "1",
+      "libelle": "medecin"
+    },
+    {
+      "id": "2",
+      "libelle": "patient"
+    },
+    {
+      "id": "1",
+      "libelle": "secretaire"
+    }
+  ]
+}
