@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const titre=document.getElementById("titre");
   titre.textContent="Bienvenue docteur"+"  "+majuscule(doctor.prenom)+" "+ majuscule (doctor.nom);
 
-  
+
 
 });
 
@@ -66,6 +66,8 @@ async function listeRv(mail) {
 
       valid.addEventListener("click", () => {
         rdv.statut = "VALIDER";
+        console.log(rdv.statut);
+        
         valider(statut, valid, refus);
         misAjour(rdv)
       });

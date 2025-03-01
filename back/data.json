@@ -14,14 +14,14 @@
       "nom": "niass",
       "prenom": "abdou",
       "login": "abdou@gmail.com",
-      "password": "1234"
+      "password": "1111"
     },
     {
       "id": "2",
       "nom": "diouf",
       "prenom": "amina",
       "login": "amina@gmail.com",
-      "password": "1234"
+      "password": "3456"
     },
     {
       "id": "3",
@@ -91,6 +91,22 @@
       "specialite": "dermatologue",
       "login": "serigne@gmail.com",
       "password": "5555"
+    },
+    {
+      "id": "df15",
+      "nom": "Cissé",
+      "prenom": "Barakatou",
+      "specialite": "chirurgie",
+      "login": "brakatou@gmail.com",
+      "password": "8899"
+    },
+    {
+      "id": "9c6f",
+      "nom": "Ka ",
+      "prenom": "Djimba",
+      "specialite": "praticien",
+      "login": "djimba@gmail.com",
+      "password": "5566"
     }
   ],
   "rv": [
