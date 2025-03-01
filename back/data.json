@@ -57,6 +57,12 @@
       "prenom": "thioukh",
       "login": "thioukh@gmail.com",
       "password": "thioukh"
+    },
+    {
+      "id": "c7bd",
+      "nom": "simplon",
+      "prenom": "ROKHAYA",
+      "login": "rokhayatoure2000@gmail.com"
     }
   ],
   "medecin": [
