@@ -52,8 +52,13 @@
             </div>
             <div class="mb-4">
                 <label for="date_rv" class="block text-sm font-medium text-gray-600">Date</label>
-                <input type="datetime-local" id="date_rv" name="date_rv" class="w-full p-3 border border-gray-300 rounded-md">
+                <input type="date" id="date_rv" name="date_rv" class="w-full p-3 border border-gray-300 rounded-md">
                 <span id="date_error" class="text-red-500 text-sm hidden">Veuillez sélectionner une date.</span>
+            </div>
+            <div class="mb-4">
+                <label for="date_rv" class="block text-sm font-medium text-gray-600">Heure</label>
+                <input type="time" id="heure_rv" name="heure_rv" class="w-full p-3 border border-gray-300 rounded-md">
+                <span id="heure_error" class="text-red-500 text-sm hidden">Veuillez sélectionner une heure.</span>
             </div>
             <div class="flex justify-between">
                 <button type="submit" class="bg-purple-500 text-white px-6 py-3 rounded-md hover:bg-purple-600">Créer Rendez-vous</button>

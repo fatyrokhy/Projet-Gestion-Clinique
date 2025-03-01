@@ -51,11 +51,13 @@ function ajouterRendezvous(event) {
     const patientId = document.getElementById('patient_rv').value;
     const medecinId = document.getElementById('medecin_rv').value;
     const date = document.getElementById('date_rv').value;
+    const heure = document.getElementById('heure_rv').value;
 
     // Réinitialiser les messages d'erreur
     document.getElementById('patient_error').classList.add('hidden');
     document.getElementById('medecin_error').classList.add('hidden');
     document.getElementById('date_error').classList.add('hidden');
+    document.getElementById('heure_error').classList.add('hidden');
 
     let isValid = true;
 
@@ -74,6 +76,10 @@ function ajouterRendezvous(event) {
         document.getElementById('date_error').classList.remove('hidden');
         isValid = false;
     }
+    if (!heure) {
+        document.getElementById('heure_error').classList.remove('hidden');
+        isValid = false;
+    }
 
     if (!isValid) {
         return; // Si un champ est invalide, arrêter l'exécution
@@ -84,6 +90,7 @@ function ajouterRendezvous(event) {
         id_patient: patientId,
         id_medecin: medecinId,
         date: date,
+        heure: heure,
         statut: "en_cours"
     };
 
