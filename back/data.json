@@ -5,7 +5,7 @@
       "nom": "niass",
       "prenom": "fatima",
       "login": "fatima@gmail.com",
-      "password": "1234"
+      "password": "123456"
     }
   ],
   "patient": [
@@ -66,7 +66,7 @@
       "prenom": "moustapha",
       "specialite": "generaliste",
       "login": "moutapha@gmail.com",
-      "password": "4444"
+      "password": "444444"
     },
     {
       "id": "2",

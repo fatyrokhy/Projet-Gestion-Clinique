@@ -9,11 +9,15 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <!-- Barre de navigation -->
     <nav class="bg-blue-600 p-4 text-white shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Tableau de Bord</h1>
-            <span id="patient-name" class="font-semibold"></span>
+            <div class="flex items-center gap-4">
+                <span id="patient-name" class="font-semibold">Nom du Patient</span>
+                <button id="logoutButton" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-300">
+                    Déconnexion
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -41,5 +45,6 @@
         &copy; 2025 - Système de Gestion Médicale
     </footer>
     <script src="patient.js"></script>
+    <script src="deconnexion.js"></script>
 </body>
 </html>
