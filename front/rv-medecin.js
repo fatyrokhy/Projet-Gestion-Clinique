@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const titre=document.getElementById("titre");
   titre.textContent="Bienvenue docteur"+"  "+majuscule(doctor.prenom)+" "+ majuscule (doctor.nom);
 
-  
+
 
 });
 
@@ -41,11 +41,11 @@ async function listeRv(mail) {
 
   const rv = await fetcher("rv");
 
-  const rvDocteur = rv.filter((rv) => rv["id-medecin"] == doctor["id"]);
+  const rvDocteur = rv.filter((rv) => rv["id_medecin"] == doctor["id"]);
   console.log(rvDocteur);
 
   rvDocteur.forEach((rdv) => {
-    const malade = patient.filter((p) => p.id == rdv["id-patient"]);
+    const malade = patient.filter((p) => p.id == rdv["id_patient"]);
     malade.forEach((malade) => {
 
       const row = document.createElement("tr");
@@ -66,6 +66,8 @@ async function listeRv(mail) {
 
       valid.addEventListener("click", () => {
         rdv.statut = "VALIDER";
+        console.log(rdv.statut);
+        
         valider(statut, valid, refus);
         misAjour(rdv)
       });

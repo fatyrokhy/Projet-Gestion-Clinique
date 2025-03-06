@@ -9,6 +9,23 @@
 </head>
 <body class="bg-gray-50">
 
+    <!-- Header -->
+  <header class="bg-blue-600 text-white shadow-md">
+    <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-bold">Admin - Gestion d'école</h1>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="listeRvt.html" class="text-white hover:text-gray-300" ">Rv</a>
+        <a href="ListePatients.html" class="text-white hover:text-gray-300" ">patient</a>
+        <a href="liste-medecin.html" class="text-white hover:text-gray-300" " >Medecin</a>
+        <a href="#" class="text-white hover:text-gray-300">Paramètres</a>
+        <button id="logoutBtn" class="bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-800">Déconnexion</button>
+      </div>
+    </div>
+  </header>
+
+
     <div class="max-w-5xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-xl">
         <h1 class="text-3xl font-semibold text-gray-800 text-center mb-6">Liste des Rendez-vous</h1>
         <button onclick="openModal('modal-rendezvous')" class="bg-purple-500 my-3 text-white px-6 py-3 rounded-md hover:bg-purple-600">Ajouter Rv</button>

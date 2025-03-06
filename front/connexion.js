@@ -42,7 +42,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
                 if (role === "medecin") {
                     window.location.href = "rv-medecin.html";
                 } else if (role === "secretaire") {
-                    window.location.href = "dashboard_secretaire.html";
+                    window.location.href = "listeRvt.html";
                 } else if (role === "patient") {
                     window.location.href = "dashboard_patient.html";
                 }

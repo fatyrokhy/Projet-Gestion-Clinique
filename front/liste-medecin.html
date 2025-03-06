@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medecin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+ <!-- Header -->
+ <header class="bg-blue-600 text-white shadow-md">
+    <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-bold">Admin - Gestion d'école</h1>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="listeRvt.html" class="text-white hover:text-gray-300" ">Rv</a>
+        <a href="ListePatients.html" class="text-white hover:text-gray-300" ">patient</a>
+        <a href="liste-medecin.html" class="text-white hover:text-gray-300" " >Medecin</a>
+        <a href="#" class="text-white hover:text-gray-300">Paramètres</a>
+        <button id="logoutBtn" class="bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-800">Déconnexion</button>
+      </div>
+    </div>
+  </header>
+
+<body>
+    <div class="grid grid-cols-1 gap-6" id="contenu">
+    <div class="w-[75%] ml-24 bg-white p-6 rounded-lg shadow-md mt-12 absolute">
+        <div class="flex justify-between items-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4" id="titre">Liste de tous les medecins</h2>
+            <button type="button" id="add_medecin" onclick="popup()" class="bg-blue-500 text-white font-semibold px-3 h-8 py-1 rounded-lg">Ajouter</button>
+        </div>
+        <table class="w-full border-collapse bg-white shadow-lg  overflow-hidden">
+            <thead class="bg-slate-600 text-white">
+                <tr>
+                    <th class="py-1 px-2 text-center rounded-ss-lg">Nom</th>
+                    <th class="py-1 px-2 text-center">Prénom</th>
+                    <th class="py-1 px-2 text-center">Spécialité</th>
+                    <th class="py-1 px-2 text-center ">Email</th>
+                    <th class="py-1 px-2 text-center rounded-se-lg">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="liste-medecin" class="divide-y divide-gray-200">
+                <!-- Les rv seront ajoutés ici -->
+
+            </tbody>
+        </table>
+        
+    </div>
+<!-- formulaire -->
+    <section id="form_medecin"  class="section hidden flex justify-center items-center w-full relative mx-auto mt-12">
+        <div class="max-w-screen-xl mx-auto flex justify-center shadow-md py-6">
+          <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-center text-gray-700 mb-4">Ajouter un Médecin</h2>
+            <form id="medecinForm" class="space-y-4">
+                <input type="text" id="nomMedecin" placeholder="Nom" required 
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" id="prenomMedecin" placeholder="Prénom" required 
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" id="specialiteMedecin" placeholder="Spécialité" required 
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" id="loginMedecin" placeholder="Email" required 
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="password" id="passwordMedecin" placeholder="Mot de passe" required 
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button type="submit" 
+                    class="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition">Ajouter Médecin</button>
+            </form>
+        </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="liste-medecin.js"></script>
+</body>
+
+</html>
