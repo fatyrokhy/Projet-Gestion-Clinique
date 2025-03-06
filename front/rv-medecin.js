@@ -87,6 +87,7 @@ function valider(statut,valid,refus) {
   valid.classList.add("hidden");
   refus.classList.remove("hidden");
 }
+// zùl
 
 function misAjour(rdv) {
   fetch(`http://localhost:3000/rv`, {
