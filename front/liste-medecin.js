@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  retour() 
     const user=JSON.parse(localStorage.getItem("user"))
    medecin = await fetcher("medecin");
    listeMedcin(medecin); 
@@ -26,6 +27,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
   });
+  const deconnect=document.querySelector("#logoutBtn");
+ deconnect.addEventListener('click',()=>{
+     localStorage.removeItem("user");
+     window.location.href = "index.html"; 
+ });
+ function retour() {
+    const user=JSON.parse(localStorage.getItem('user')) ;
+    if (!user) {
+        window.location.href='index.html';
+    }
+ }
   
 async function fetcher(cle) {
     try {

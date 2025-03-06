@@ -16,7 +16,6 @@ async function listerPatients() {
         patients.forEach(patient => {
             const row = document.createElement("tr");
             row.innerHTML = `
-                <td class="py-4 px-6 border-b">${patient.id}</td>
                 <td class="py-4 px-6 border-b">${patient.nom}</td>
                 <td class="py-4 px-6 border-b">${patient.prenom}</td>
                 <td class="py-4 px-6 border-b">${patient.login}</td>
@@ -64,3 +63,16 @@ window.onload = listerPatients;
                 console.error("Erreur:", error);
             }
         });
+
+        const deconnect=document.querySelector("#logoutBtn");
+        deconnect.addEventListener('click',()=>{
+            localStorage.removeItem("user");
+            window.location.href = "index.html"; 
+        });
+        function retour() {
+           const user=JSON.parse(localStorage.getItem('user')) ;
+           if (!user) {
+               window.location.href='index.html';
+           }
+        }
+        retour();

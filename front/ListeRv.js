@@ -1,5 +1,6 @@
 //ppp
 document.addEventListener("DOMContentLoaded", async function () {
+    retour();
     try {
         const response = await fetch("http://localhost:3000/rv");
         const rendezvousList = await response.json();
@@ -28,3 +29,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.error("Erreur lors du chargement des rendez-vous:", error);
     }
 });
+
+const deconnect=document.querySelector("#logoutBtn");
+deconnect.addEventListener('click',()=>{
+    localStorage.removeItem("user");
+    window.location.href = "index.html"; 
+});
+function retour() {
+   const user=JSON.parse(localStorage.getItem('user')) ;
+   if (!user) {
+       window.location.href='index.html';
+   }
+}

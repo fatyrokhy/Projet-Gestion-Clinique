@@ -10,11 +10,19 @@
 <body class="bg-gray-100 text-gray-800">
 
     <!-- Barre de navigation -->
-    <nav class="bg-blue-600 p-4 text-white shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Gestion des Patients</h1>
+    <header class="bg-blue-600 text-white shadow-md">
+        <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+          <div class="flex items-center">
+            <h1 class="text-2xl font-bold">Admin - Gestion d'école</h1>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a href="ListePatients.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_Patient')"> Patient</a>
+            <a href="liste-medecin.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_medcin')"> medcin</a>
+            <a href="listeRvt.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_rv')" > Rv</a>
+            <button id="logoutBtn" class="bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-800">Déconnexion</button>
+          </div>
         </div>
-    </nav>
+      </header>
 
     <main class="container mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg">
         <div class="container mx-auto flex justify-between items-center">
@@ -28,7 +36,6 @@
             <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
                 <thead class="bg-blue-500 text-white">
                     <tr>
-                        <th class="py-4 px-6 border-b text-left">🆔 ID</th>
                         <th class="py-4 px-6 border-b text-left">👤 Nom</th>
                         <th class="py-4 px-6 border-b text-left">👤 Prénom</th>
                         <th class="py-4 px-6 border-b text-left">✉️ Login</th>

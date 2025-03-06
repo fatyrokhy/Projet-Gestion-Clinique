@@ -9,7 +9,21 @@
 
 <body>
     <div class="grid grid-cols-1 gap-6" id="contenu">
-    <div class="w-[75%] ml-24 bg-white p-6 rounded-lg shadow-md mt-12 absolute">
+        <header class="bg-blue-600 text-white shadow-md">
+            <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+              <div class="flex items-center">
+                <h1 class="text-2xl font-bold">Admin - Gestion d'école</h1>
+              </div>
+              <div class="flex items-center space-x-6">
+                <a href="ListePatients.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_Patient')"> Patient</a>
+                <a href="liste-medecin.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_medcin')"> medcin</a>
+                <a href="listeRvt.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_rv')" > Rv</a>
+                <button id="logoutBtn" class="bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-800">Déconnexion</button>
+              </div>
+            </div>
+          </header>
+        
+    <div class="w-[75%] ml-24 bg-white p-6 rounded-lg shadow-md mt-32 absolute">
         <div class="flex justify-between items-center">
             <h2 class="text-2xl font-bold text-gray-800 mb-4" id="titre">Liste de tous les medecins</h2>
             <button type="button" id="add_medecin" onclick="popup()" class="bg-blue-500 text-white font-semibold px-3 h-8 py-1 rounded-lg">Ajouter</button>
