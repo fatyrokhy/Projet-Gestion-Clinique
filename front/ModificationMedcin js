@@ -1,0 +1,59 @@
+document.getElementById("updateMedecinForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const medecinId = document.getElementById("medecinId").value.trim();
+    const nom = document.getElementById("nomMedecin").value.trim();
+    const prenom = document.getElementById("prenomMedecin").value.trim();
+    const specialite = document.getElementById("specialiteMedecin").value.trim();
+    const login = document.getElementById("loginMedecin").value.trim();
+    const password = document.getElementById("passwordMedecin").value.trim();
+    const messageDiv = document.getElementById("message");
+
+    // Vérification si l'ID est renseigné
+    if (!medecinId) {
+        messageDiv.innerHTML = "<p style='color:red;'>Veuillez entrer l'ID du médecin à modifier !</p>";
+        return;
+    }
+
+    // Vérification des champs vides
+    if (!nom || !prenom || !specialite || !login || !password) {
+        messageDiv.innerHTML = "<p style='color:red;'>Tous les champs sont obligatoires !</p>";
+        return;
+    }
+
+    // Demande de confirmation
+    const confirmation = confirm("Êtes-vous sûr de vouloir modifier ce médecin ?");
+    if (!confirmation) {
+        messageDiv.innerHTML = "<p style='color:orange;'>Modification annulée.</p>";
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:3000/medecin/${medecinId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nom, prenom, specialite, login, password })
+        });
+
+        if (!response.ok) {
+            if (response.status === 404) {
+                throw new Error("Médecin introuvable !");
+            } else {
+                throw new Error("Erreur lors de la modification du médecin !");
+            }
+        }
+
+        const data = await response.json();
+        console.log("Médecin modifié:", data);
+
+        // Affichage du message de succès
+        messageDiv.innerHTML = "<p style='color:green;'>Médecin modifié avec succès !</p>";
+
+        // Réinitialisation du formulaire
+        document.getElementById("updateMedecinForm").reset();
+    } catch (error) {
+        console.error("Erreur:", error.message);
+        messageDiv.innerHTML = "<p style='color:red;'>" + error.message + "</p>";
+    }
+});
+
