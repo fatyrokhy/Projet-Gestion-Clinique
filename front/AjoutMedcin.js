@@ -1,89 +1,62 @@
-//ajoutmedcin
 document.getElementById("medecinForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const nom = document.getElementById("nomMedecin").value;
-    const prenom = document.getElementById("prenomMedecin").value;
-    const specialite = document.getElementById("specialiteMedecin").value;
-    const login = document.getElementById("loginMedecin").value;
-    const password = document.getElementById("passwordMedecin").value;
+    const nom = document.getElementById("nomMedecin").value.trim();
+    const prenom = document.getElementById("prenomMedecin").value.trim();
+    const specialite = document.getElementById("specialiteMedecin").value.trim();
+    const login = document.getElementById("loginMedecin").value.trim();
+    const password = document.getElementById("passwordMedecin").value.trim();
+    const messageDiv = document.getElementById("message");
 
-    const response = await fetch("http://localhost:3000/medecin", {
+    // Vérification des champs obligatoires
+    if (!validateFields(nom, prenom, specialite, login, password, messageDiv)) {
+        return;
+    }
 
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nom, prenom, specialite, login, password })
-    });
+    try {
+        const response = await fetch("http://localhost:3000/medecin", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nom, prenom, specialite, login, password })
+        });
 
-    const data = await response.json();
-    console.log("Médecin ajouté:", data);
+        if (!response.ok) {
+            throw new Error("Erreur lors de l'ajout du médecin !");
+        }
+
+        const data = await response.json();
+        console.log("Médecin ajouté:", data);
+
+        // Affichage d'un message de succès
+        messageDiv.innerHTML = "<p style='color:green;'>Médecin ajouté avec succès !</p>";
+
+        // Réinitialisation du formulaire
+        document.getElementById("medecinForm").reset();
+    } catch (error) {
+        console.error("Erreur:", error.message);
+        messageDiv.innerHTML = "<p style='color:red;'>" + error.message + "</p>";
+    }
 });
 
+// Fonction de validation des champs
+function validateFields(nom, prenom, specialite, login, password, messageDiv) {
+    if (!nom || !prenom || !specialite || !login || !password) {
+        messageDiv.innerHTML = "<p style='color:red;'>Veuillez remplir tous les champs obligatoires !</p>";
+        return false;
+    }
 
-// AjoutRV
+    // Vérification du format du login (ex: email)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(login)) {
+        messageDiv.innerHTML = "<p style='color:red;'>Veuillez entrer un email valide !</p>";
+        return false;
+    }
 
+    // Vérification du mot de passe (au moins 6 caractères)
+    if (password.length < 6) {
+        messageDiv.innerHTML = "<p style='color:red;'>Le mot de passe doit contenir au moins 6 caractères !</p>";
+        return false;
+    }
 
-
-
-
-
-// async function getMedecins() {
-//     const response = await fetch("http://localhost:3001/medecin");
-//     const data = await response.json();
-//     console.log("Liste des médecins:", data);
-// }
-
-
-
-
-
-// document.getElementById("formPatient").addEventListener("submit", function(event) {
-//     event.preventDefault(); // Empêche le rechargement de la page
-
-//     ajouterPatient(); // Appelle la fonction pour ajouter un patient
-// });
-
-// Fonction pour ajouter un patient
-
-
-
-    // Vérification des champs avant d'envoyer la requête
-    // if (!nom || !prenom || !login || !password) {
-    //     messageDiv.innerHTML = "<p style='color:red;'>Veuillez remplir tous les champs !</p>";
-    //     return;
-    // }
-
-    // // Création de l'objet patient
-    // const newPatient = {
-    //     id: Date.now().toString(), // Générer un ID unique
-    //     nom: nom,
-    //     prenom: prenom,
-    //     login: login,
-    //     password: password
-    // };
-    // console.log(newPatient);
-
-    // try {
-    //     const response = await fetch("http://localhost:3001/patient", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify(newPatient)
-    //     });
-
-    //     if (!response.ok) {
-    //         throw new Error("Erreur lors de l'ajout du patient !");
-    //     }
-
-    //     const data = await response.json();
-    //     console.log("Patient ajouté :", data);
-
-    //     // Affichage d'un message de confirmation
-    //     messageDiv.innerHTML = "<p style='color:green;'>Patient ajouté avec succès !</p>";
-
-    //     // Réinitialisation du formulaire
-    //     document.getElementById("formPatient").reset();
-    // } catch (error) {
-    //     console.error("Erreur :", error.message);
-    //     messageDiv.innerHTML = "<p style='color:red;'>" + error.message + "</p>";
-    // }
-    
+    return true;
+}
