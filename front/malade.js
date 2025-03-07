@@ -30,11 +30,11 @@ async function listePatient(mail) {
   
     const rv = await fetcher("rv");
   
-    const rvMalade = rv.filter((rv) => rv["id-patient"] == soufrant["id"]);
+    const rvMalade = rv.filter((rv) => rv["id_patient"] == soufrant["id"]);
     console.log(rvMalade);
   
     rvMalade.forEach((rdv) => {
-      const docteur = medecin.filter((med) => med.id == rdv["id-medecin"]);
+      const docteur = medecin.filter((med) => med.id == rdv["id_medecin"]);
       docteur.forEach((malade) => {
   
         const row = document.createElement("tr");

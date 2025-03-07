@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Patients</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="ListesPatients.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Barre de navigation -->
+    <header class="bg-blue-600 text-white shadow-md">
+        <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+          <div class="flex items-center">
+            <h1 class="text-2xl font-bold">Admin - Gestion d'école</h1>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a href="ListePatients.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_Patient')"> Patient</a>
+            <a href="liste-medecin.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_medcin')"> medcin</a>
+            <a href="listeRvt.html" class="text-white hover:text-gray-300" onclick="showSection('ajout_rv')" > Rv</a>
+            <button id="logoutBtn" class="bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-800">Déconnexion</button>
+          </div>
+        </div>
+      </header>
+
+    <main class="container mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h3 class="text-xl font-semibold mb-4">📋 Liste des Patients</h3>
+            <button id="btnAjouter" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">➕ Ajouter</button>
+
+        </div>
+        
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                <thead class="bg-blue-500 text-white">
+                    <tr>
+                        <th class="py-4 px-6 border-b text-left">👤 Nom</th>
+                        <th class="py-4 px-6 border-b text-left">👤 Prénom</th>
+                        <th class="py-4 px-6 border-b text-left">✉️ Login</th>
+                    </tr>
+                </thead>
+                <tbody id="listePatients" class="text-gray-700 divide-y divide-gray-300">
+                    <!-- Les patients seront affichés ici -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+     <!-- Modal pour ajouter un patient -->
+     <div id="modalAjouter" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h3 class="text-xl font-semibold mb-4">Ajouter un Patient</h3>
+            <form id="formAjouter">
+                <input type="text" id="nom" placeholder="Nom" class="w-full p-2 border rounded mb-2" >
+                <input type="text" id="prenom" placeholder="Prénom" class="w-full p-2 border rounded mb-2" >
+                <input type="text" id="login" placeholder="Login" class="w-full p-2 border rounded mb-2" >
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded w-full">Ajouter</button>
+            </form>
+            <button id="btnFermer" class="mt-4 text-red-500">Fermer</button>
+        </div>
+    </div>
+
+    <footer class="text-center p-4 mt-8 text-gray-600">
+        &copy; 2025 - Système de Gestion Médicale
+    </footer>
+</body>
+</html>

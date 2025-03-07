@@ -41,11 +41,11 @@ async function listeRv(mail) {
 
   const rv = await fetcher("rv");
 
-  const rvDocteur = rv.filter((rv) => rv["id-medecin"] == doctor["id"]);
+  const rvDocteur = rv.filter((rv) => rv["id_medecin"] == doctor["id"]);
   console.log(rvDocteur);
 
   rvDocteur.forEach((rdv) => {
-    const malade = patient.filter((p) => p.id == rdv["id-patient"]);
+    const malade = patient.filter((p) => p.id == rdv["id_patient"]);
     malade.forEach((malade) => {
 
       const row = document.createElement("tr");
@@ -65,45 +65,42 @@ async function listeRv(mail) {
       const refus = row.querySelector("#refus");
 
       valid.addEventListener("click", () => {
-        rdv.statut = "VALIDER";
-        console.log(rdv.statut);
-        
-        valider(statut, valid, refus);
-        misAjour(rdv)
+        valider(statut, valid);
+        misAjour(rdv.id,"VALIDER");
       });
 
       refus.addEventListener("click", () => {
-        rdv.statut = "REFUSER";
-        refuser(statut, refus, valid);
-        misAjour(rdv)
+        refuser(statut, refus);
+        misAjour(rdv.id,"REFUSER");
       });
+
     });
+
   });
 }
 
-function valider(statut,valid,refus) {
+function valider(statut,valid) {
   statut.classList.add("text-green-600");
   statut.classList.remove("text-red-600");
-  valid.classList.add("hidden");
-  refus.classList.remove("hidden");
+  valid.disabled = true;
 }
 // zùl
 
-function misAjour(rdv) {
-  fetch(`http://localhost:3000/rv`, {
-    method: 'PUT',
+function misAjour(id,statut) {
+  
+  fetch(`http://localhost:3000/rv/${id}`, {
+    method: 'PATCH',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(rdv)
+    body: JSON.stringify({statut})
 }).then(response => response.json())
   .then(data => console.log("Mise à jour réussie :", data))
   .catch(error => console.error("Erreur :", error));
 }
 
-function refuser(statut, refus, valid) {
-  statut.classList.add("text-red-600");
+function refuser(statut, refus) {
   statut.classList.remove("text-green-600");
-  refus.classList.add("hidden");
-  valid.classList.remove("hidden");
+  statut.classList.add("text-red-600");
+  refus.disabled = true
 }
