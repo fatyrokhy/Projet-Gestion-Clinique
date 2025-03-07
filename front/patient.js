@@ -1,12 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function () {
     let user = JSON.parse(localStorage.getItem('user'));
 
-    if (!user || !user.id) {
-        alert("Utilisateur non connecté !");
-        window.location.href = "connexion.html";
-        return;
-    }
-
     document.getElementById("patient-name").textContent = user.nom + " " + user.prenom;
 
     try {
